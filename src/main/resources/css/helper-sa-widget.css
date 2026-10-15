@@ -1,0 +1,60 @@
+/* Виджет «Помощник системного аналитика» */
+.helper-sa-widget {
+    margin: 10px 0;
+    padding: 12px 16px;
+    border: 1px solid #dfe1e6;
+    border-radius: 6px;
+    background: #fff;
+}
+.helper-sa-widget__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 12px;
+    margin-bottom: 10px;
+}
+.helper-sa-widget__title {
+    font-weight: 600;
+    font-size: 15px;
+}
+.helper-sa-widget__meta {
+    color: #6b778c;
+    font-size: 12px;
+}
+.helper-sa-widget__image a {
+    display: inline-block;
+    max-width: 100%;
+    cursor: zoom-in;
+}
+.helper-sa-widget__image img {
+    display: block;
+    border: 1px solid #ebecf0;
+    border-radius: 3px;
+}
+.helper-sa-widget__no-image {
+    color: #6b778c;
+    font-style: italic;
+}
+.helper-sa-widget__source {
+    margin-top: 10px;
+}
+.helper-sa-widget__source > summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #42526e;
+    padding: 4px 0;
+}
+.helper-sa-widget__code {
+    max-height: 600px;
+    overflow: auto;
+    padding: 8px 12px;
+    background: #f4f5f7;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: pre;
+}
+.helper-sa-widget__unpinned {
+    margin-bottom: 8px;
+    color: #974f0c;
+    font-size: 12px;
+}

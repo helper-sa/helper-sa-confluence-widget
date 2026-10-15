@@ -1,0 +1,51 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/icon.png</param>
+        <param name="plugin-logo">images/icon.png</param>
+        <param name="configure.url">/plugins/servlet/helper-sa/admin</param>
+    </plugin-info>
+
+    <resource type="i18n" name="i18n" location="helper-sa-widget"/>
+    <resource type="download" name="images/" location="images"/>
+
+    <web-resource key="widget-resources" name="Оформление виджета">
+        <resource type="download" name="helper-sa-widget.css" location="css/helper-sa-widget.css"/>
+    </web-resource>
+
+    <!-- Окно параметров макроса: закрепление текущей версии документа при вставке ссылки -->
+    <web-resource key="macro-browser-resources" name="Параметры макроса">
+        <resource type="download" name="macro-browser.js" location="js/macro-browser.js"/>
+        <context>macro-browser</context>
+    </web-resource>
+
+    <!-- Макрос: ссылка «Поделиться» helper-sa и ширина миниатюры -->
+    <xhtml-macro name="helper-sa" key="helper-sa-macro" class="ru.sahelper.confluence.HelperSaMacro"
+                 icon="/download/resources/${atlassian.plugin.key}/images/icon.png"
+                 documentation-url="https://helper-sa.ru">
+        <category name="external-content"/>
+        <category name="visuals"/>
+        <parameters>
+            <parameter name="url" type="url" required="true"/>
+            <parameter name="width" type="int" default="600"/>
+            <parameter name="version" type="int"/>
+        </parameters>
+    </xhtml-macro>
+
+    <!-- Текущая версия документа по ссылке — для закрепления в окне параметров макроса -->
+    <servlet key="resolve-servlet" class="ru.sahelper.confluence.ResolveServlet">
+        <url-pattern>/helper-sa/resolve</url-pattern>
+    </servlet>
+
+    <!-- Настройки администратора: адреса helper-sa, к которым можно обращаться -->
+    <servlet key="admin-servlet" class="ru.sahelper.confluence.AdminServlet">
+        <url-pattern>/helper-sa/admin</url-pattern>
+    </servlet>
+    <web-item key="admin-link" section="system.admin/configuration" weight="200">
+        <label key="ru.sahelper.helper-sa-confluence-widget.admin.title"/>
+        <link linkId="helper-sa-admin-link">/plugins/servlet/helper-sa/admin</link>
+        <condition class="com.atlassian.confluence.plugin.descriptor.web.conditions.ConfluenceAdministratorCondition"/>
+    </web-item>
+</atlassian-plugin>
