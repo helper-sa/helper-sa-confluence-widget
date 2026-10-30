@@ -60,6 +60,7 @@ class WidgetHtmlTest {
         assertEquals("yaml", WidgetHtml.language("openapi", "openapi: 3.1.0"));
         assertEquals("js", WidgetHtml.language("openapi", " {\"openapi\":\"3.1.0\"}"));
         assertEquals("text", WidgetHtml.language("plantuml", "@startuml"));
+        assertEquals("text", WidgetHtml.language("graphql", "type Query { a: Int }"));
         assertTrue(WidgetHtml.codeStorage("xml", "a]]>b").contains("<![CDATA[a]]]]><![CDATA[>b]]>"));
     }
 

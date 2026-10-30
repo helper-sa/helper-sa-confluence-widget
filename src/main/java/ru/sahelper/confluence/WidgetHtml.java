@@ -11,12 +11,12 @@ public final class WidgetHtml {
     public static final int DEFAULT_WIDTH = 600;
     private static final DateTimeFormatter DATE = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
 
-    /** Инструменты с картинкой: PlantUML рисует сервер helper-sa, BPMN и DBML — браузер автора. */
-    private static final Set<String> IMAGE_TOOLS = Set.of("plantuml", "bpmn", "dbml");
+    /** Инструменты с картинкой: PlantUML рисует сервер helper-sa, BPMN, DBML и GraphQL — браузер автора. */
+    private static final Set<String> IMAGE_TOOLS = Set.of("plantuml", "bpmn", "dbml", "graphql");
 
     private static final Map<String, String> TOOL_NAMES = Map.ofEntries(
             Map.entry("dbml", "DBML"), Map.entry("plantuml", "PlantUML"), Map.entry("openapi", "OpenAPI"),
-            Map.entry("asyncapi", "AsyncAPI"), Map.entry("bpmn", "BPMN"), Map.entry("xsd", "XSD"), Map.entry("wsdl", "WSDL"),
+            Map.entry("asyncapi", "AsyncAPI"), Map.entry("graphql", "GraphQL"), Map.entry("bpmn", "BPMN"), Map.entry("xsd", "XSD"), Map.entry("wsdl", "WSDL"),
             Map.entry("xml", "XML"), Map.entry("jsonschema", "JSON Schema"), Map.entry("yaml", "YAML"), Map.entry("json", "JSON"),
             Map.entry("markdown", "Markdown"), Map.entry("asciidoc", "AsciiDoc"));
 
